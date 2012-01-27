@@ -1,8 +1,8 @@
 [user]
-	name = David Hazinski
-	email = dhazinski@gmail.com
+    name = David Hazinski
+    email = dhazinski@gmail.com
 [color]
-	ui = auto
+    ui = auto
 [color "branch"]
     current = green reverse
     local = green
@@ -17,9 +17,9 @@
     changed = yellow
     untracked = red
 [advice]
-	statusHints = false
+    statusHints = false
 [diff]
-	renames = copies
+    renames = copies
 [core]
     whitespace=fix,tabwidth=4,tab-in-indent,space-before-tab,trailing-space,cr-at-eol
 [alias]
