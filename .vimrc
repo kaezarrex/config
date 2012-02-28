@@ -76,3 +76,9 @@ colorscheme solarized
 ":highlight ColorColumn ctermbg=grey guibg=grey
 
 let g:Powerline_symbols = 'fancy'
+
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
