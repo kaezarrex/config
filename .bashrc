@@ -82,6 +82,10 @@ function rpass() {
     strings /dev/urandom | grep -o '[[:alnum:]]' | head -n $1 | tr -d '\n'; echo
 }
 
+function wikipedia() {
+    dig +short txt ${1}.wp.dg.cx
+}
+
 function __git_ps1() 
 { 
     local b="$(git symbolic-ref HEAD 2>/dev/null)";
