@@ -72,7 +72,6 @@ C35="\[\033[00;35m\]"
 C36="\[\033[00;36m\]"
 
 PS1="\$(__git_ps1 | tr -d ' ')${C32}\u@\h:${C34}\w${RESET} \$ "
-#PS1="\$(__git_ps1 | tr -d ' ')${C32}\[\033[00;34m\]\w${RESET} \$ "
 
 function name() {
     printf '\033]2;%s\007' "$@";
@@ -96,7 +95,10 @@ function __git_ps1()
 
 alias vi='vim'
 alias apt-get="sudo apt-get"
-alias sysup="apt-get update && apt-get upgrade"
+alias sysup="apt-get update && apt-get dist-upgrade"
+alias start="sudo start"
+alias stop="sudo stop"
+alias reload="sudo reload"
 alias diff='diff -u'
 alias sl='sl -e'
 alias grep='grep --color=auto --exclude-dir=.svn'
