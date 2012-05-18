@@ -1,0 +1,16 @@
+# temporary files
+*.swp
+
+# packages
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# logs
+*.log
+
+# databases
+*.sql

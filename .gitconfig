@@ -22,6 +22,7 @@
     renames = copies
 [core]
     whitespace=fix,tabwidth=4,tab-in-indent,space-before-tab,trailing-space,cr-at-eol
+	excludesfile = /home/david/.gitignore_global
 [alias]
     co = checkout
     ci = commit
