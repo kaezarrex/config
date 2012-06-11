@@ -90,23 +90,23 @@ function __my_git_ps1() {
     if [ -n "$b" ]; then
         printf " [%s" "${b##refs/heads/}";
 
-        if [ -n "$(git status -s | grep '^A')" ]; then
+        if [ -n "$(git status --porcelain | grep '^A')" ]; then
             printf "\033[00;32m+\033[00m";
         fi
 
-        if [ -n "$(git status -s | grep '^M')" ]; then
+        if [ -n "$(git status --porcelain | grep '^M')" ]; then
             printf "\033[00;32m*\033[00m";
         fi
 
-        if [ -n "$(git status -s | grep '^D')" ]; then
+        if [ -n "$(git status --porcelain | grep '^D')" ]; then
             printf "\033[00;32m-\033[00m";
         fi
 
-        if [ -n "$(git status -s | grep '^ M')" ]; then
+        if [ -n "$(git status --porcelain | grep '^ M')" ]; then
             printf "\033[00;33m*\033[00m";
         fi
 
-        if [ -n "$(git status -s | grep '^??')" ]; then
+        if [ -n "$(git status --porcelain | grep '^??')" ]; then
             printf "\033[00;31m?\033[00m";
         fi
 
