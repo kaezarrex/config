@@ -71,7 +71,7 @@ C34="\[\033[00;34m\]"
 C35="\[\033[00;35m\]"
 C36="\[\033[00;36m\]"
 
-PS1="\$(__git_ps1 | tr -d ' ')${C32}\u@\h:${C34}\w${RESET} \$ "
+PS1="\$(__my_git_ps1 | tr -d ' ')${C32}\u@\h:${C34}\w${RESET} \$ "
 
 function name() {
     printf '\033]2;%s\007' "$@";
@@ -85,11 +85,32 @@ function wikipedia() {
     dig +short txt ${1}.wp.dg.cx
 }
 
-function __git_ps1() 
-{ 
+function __my_git_ps1() {
     local b="$(git symbolic-ref HEAD 2>/dev/null)";
     if [ -n "$b" ]; then
-        printf " (%s)" "${b##refs/heads/}";
+        printf " [%s" "${b##refs/heads/}";
+
+        if [ -n "$(git status -s | grep '^A')" ]; then
+            printf "\033[00;32m+\033[00m";
+        fi
+
+        if [ -n "$(git status -s | grep '^M')" ]; then
+            printf "\033[00;32m*\033[00m";
+        fi
+
+        if [ -n "$(git status -s | grep '^D')" ]; then
+            printf "\033[00;32m-\033[00m";
+        fi
+
+        if [ -n "$(git status -s | grep '^ M')" ]; then
+            printf "\033[00;33m*\033[00m";
+        fi
+
+        if [ -n "$(git status -s | grep '^??')" ]; then
+            printf "\033[00;31m?\033[00m";
+        fi
+
+        printf "]";
     fi
 }
 
