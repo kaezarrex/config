@@ -74,6 +74,3 @@ let g:vimroom_width = 79
 
 set background=dark
 colorscheme solarized
-
-let g:Powerline_symbols = 'fancy'
-
