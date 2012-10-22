@@ -22,7 +22,7 @@
     renames = copies
 [core]
     whitespace=fix,tabwidth=4,tab-in-indent,space-before-tab,trailing-space,cr-at-eol
-	excludesfile = /home/david/.gitignore_global
+    excludesfile = /home/david/.gitignore_global
 [alias]
     co = checkout
     ci = commit
@@ -31,3 +31,6 @@
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     type = cat-file -t
     dump = cat-file -p
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    visual = !gitg
