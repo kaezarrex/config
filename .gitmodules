@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/markdown-preview"]
 	path = .vim/bundle/markdown-preview
 	url = git://github.com/nelstrom/vim-markdown-preview.git
+[submodule ".vim/bundle/jedi-vim"]
+	path = .vim/bundle/jedi-vim
+	url = git://github.com/davidhalter/jedi-vim.git
