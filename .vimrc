@@ -72,5 +72,7 @@ set listchars=tab:>\ ,trail:\
 set number
 set relativenumber
 
+set undofile
+set undodir=/tmp
 set background=dark
 colorscheme solarized
