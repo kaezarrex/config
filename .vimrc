@@ -74,5 +74,12 @@ set relativenumber
 
 set undofile
 set undodir=/tmp
+
+"let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
+set t_Co=16
+
+let g:Powerline_symbols = 'fancy'
+
+let g:jedi#popup_on_dot = 0
