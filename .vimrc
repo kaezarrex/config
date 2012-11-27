@@ -69,7 +69,8 @@ au FileType javascript setl fen
 set list
 set listchars=tab:>\ ,trail:\ 
 
-"colorscheme igor
+set number
+set relativenumber
 
 set background=dark
 colorscheme solarized
