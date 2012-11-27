@@ -66,9 +66,8 @@ endfunction
 au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 
-"VimRoom
-let g:vimroom_sidebar_height=0
-let g:vimroom_width = 79
+set list
+set listchars=tab:>\ ,trail:\ 
 
 "colorscheme igor
 
