@@ -1,7 +1,3 @@
-
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
 set ls=2         " allways show status line
 set ruler        " show the cursor position all the time
 
