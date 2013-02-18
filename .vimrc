@@ -1,3 +1,21 @@
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'majutsushi/tagbar'
+
+filetype plugin indent on     " required!
+
 set ls=2         " allways show status line
 set ruler        " show the cursor position all the time
 
@@ -23,9 +41,8 @@ noremap <Right> <nop>
 
 " syntax highlighting and smart indent
 set autoindent
-filetype plugin indent on " Turns on filetype detection, filetype plugins, and filetype indenting all of which add nice extra features to whatever language you're using
 syntax on
-syntax enable " Turns on filetype detection if not already on, and then applies filetype-specific highlighting. 
+syntax enable " Turns on filetype detection if not already on, and then applies filetype-specific highlighting.
 
 if has("autocmd")
     " Restore cursor position
@@ -49,7 +66,7 @@ let g:python_fold_comments = 0
 let g:python_fold_docstrings = 0
 
 " Javascript folding
-function! JavaScriptFold() 
+function! JavaScriptFold()
     setl foldmethod=syntax
     setl foldlevelstart=1
     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
