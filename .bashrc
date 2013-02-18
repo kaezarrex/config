@@ -100,6 +100,8 @@ export EDITOR="vim"
 export PATH="$HOME/bin:$PATH"
 export TERM="xterm-256color"
 
+set -o vi
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
