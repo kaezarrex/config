@@ -12,6 +12,8 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'mileszs/ack.vim'
 
 filetype plugin indent on     " required!
 
