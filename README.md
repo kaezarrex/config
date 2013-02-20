@@ -1,3 +1,3 @@
 ## Install
 
-    $ wget http://j.mp/WUCTGE -O - | sh
+    $ wget https://raw.github.com/kaezarrex/config/master/scripts/deploy.sh -qO- | sh
