@@ -13,42 +13,42 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kevinw/pyflakes-vim'
+Bundle 'davidhalter/jedi-vim'
 Bundle 'mileszs/ack.vim'
 
 filetype plugin indent on     " required!
 
-set ls=2         " allways show status line
+set ls=2         " always show status line
 set ruler        " show the cursor position all the time
 
-set hlsearch
-
 " tabs are 4 spaces
-set tabstop=4
-set shiftwidth=4
 set expandtab
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+
+" highlight trailing whitespace and tabs
+set list
+set listchars=tab:>\ ,trail:\ 
 
 set timeoutlen=1000 ttimeoutlen=100
 
 set colorcolumn=80
 
+set number
+set spell
+set hlsearch
+
+set undofile
+set undodir=/tmp
+
 set path=.,,
 set wildmode=longest,list,full
 set wildmenu
 
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
-
-" syntax highlighting and smart indent
 set autoindent
 syntax on
-syntax enable " Turns on filetype detection if not already on, and then applies filetype-specific highlighting.
-
-if has("autocmd")
-    " Restore cursor position
-    au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-endi
+syntax enable
 
 " display the current mode and partially-typed commands in the status line:
 set showmode
@@ -56,8 +56,18 @@ set showcmd
 
 set backspace=start,indent,eol
 
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
 " shortcuts
 map <Tab> <C-W><C-W>
+
+if has("autocmd")
+    " Restore cursor position
+    au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+endi
 
 hi Folded ctermbg=0
 
@@ -80,19 +90,10 @@ endfunction
 au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 
-set list
-set listchars=tab:>\ ,trail:\ 
-
-set number
-set relativenumber
-
-set undofile
-set undodir=/tmp
-
 "let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
-set t_Co=16
+"set t_Co=16
 
 let g:Powerline_symbols = 'fancy'
 
