@@ -97,10 +97,14 @@ endfunction
 au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 
-"let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
-"set t_Co=16
+try
+    "let g:solarized_termcolors=256
+    "set t_Co=16
+    set background=dark
+    colorscheme solarized
+catch
+    colorscheme desert
+endtry
 
 let g:Powerline_symbols = 'fancy'
 
