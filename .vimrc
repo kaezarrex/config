@@ -34,14 +34,9 @@ set listchars=tab:>\ ,trail:\
 
 set timeoutlen=1000 ttimeoutlen=100
 
-set colorcolumn=80
-
 set number
 set spell
 set hlsearch
-
-set undofile
-set undodir=/tmp
 
 set path=.,,
 set wildmode=longest,list,full
@@ -56,6 +51,17 @@ set showmode
 set showcmd
 
 set backspace=start,indent,eol
+
+if exists('+colorcolumn')
+    " show colored 80th column
+    set colorcolumn=80
+endif
+
+if has('persistent_undo')
+    " enable persistent undos
+    set undodir=/tmp
+    set undofile
+endif
 
 noremap <Up> <nop>
 noremap <Down> <nop>
