@@ -15,6 +15,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on     " required!
 
