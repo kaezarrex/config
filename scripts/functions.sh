@@ -48,5 +48,5 @@ pre_install(){
 
 post_install(){
     # Install/update/clean vim bundles through Vundle.
-    vim +BundleInstall! +BundleClean +qall
+    vim +BundleInstall! +BundleClean +qall < /dev/tty
 }
