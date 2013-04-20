@@ -16,6 +16,7 @@ Bundle 'kevinw/pyflakes-vim'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'groenewege/vim-less'
 
 filetype plugin indent on     " required!
 
