@@ -6,7 +6,7 @@ install_file(){
     filename=$1
 
     source_file=$FILES_PATH/$filename
-    target_file=$INSTALL_PATH/$filename
+    target_file=$INSTALL_PATH/.$filename
     backup_file=$BACKUP_PATH/$filename
 
     # Backup
