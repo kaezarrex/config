@@ -10,7 +10,7 @@ Bundle 'gmarik/vundle'
 
 " My Bundles here:
 Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'davidhalter/jedi-vim'
@@ -107,6 +107,6 @@ catch
     colorscheme desert
 endtry
 
-let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
 
 let g:jedi#popup_on_dot = 0
