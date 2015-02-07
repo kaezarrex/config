@@ -22,7 +22,7 @@
     renames = copies
 [core]
     whitespace=fix,tabwidth=4,tab-in-indent,space-before-tab,trailing-space,cr-at-eol
-    excludesfile = /home/david/.gitignore_global
+    excludesfile = /Users/david/.gitignore_global
 [alias]
     co = checkout
     ci = commit
@@ -36,3 +36,5 @@
     last = log -1 HEAD
     visual = !gitg
     up = "!git remote update -p; git merge --ff-only @{u}"
+[push]
+    default = simple

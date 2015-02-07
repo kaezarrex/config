@@ -1,26 +1,34 @@
-set nocompatible               " be iMproved
-filetype off                   " required!
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " My Bundles here:
-Bundle 'tpope/vim-fugitive'
-Bundle 'bling/vim-airline'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'kevinw/pyflakes-vim'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'groenewege/vim-less'
-Bundle 'mikewest/vimroom'
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'fatih/vim-go'
+Plugin 'groenewege/vim-less'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kevinw/pyflakes-vim'
+Plugin 'mikewest/vimroom'
+Plugin 'mileszs/ack.vim'
+Plugin 'rjohnsondev/vim-compiler-go'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
 
-filetype plugin indent on     " required!
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 
 set ls=2         " always show status line
 set ruler        " show the cursor position all the time
@@ -71,6 +79,9 @@ noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
+" go-compile
+let g:golang_cwindow = 0
+
 " shortcuts
 map <Tab> <C-W><C-W>
 
@@ -81,10 +92,20 @@ endi
 
 hi Folded ctermbg=0
 
+"folding settings
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+
 " Folding - use f to fold/unfold blocks
 map f za
 let g:python_fold_comments = 0
 let g:python_fold_docstrings = 0
+
+autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
+autocmd BufRead,BufNewFile *.html setlocal foldmethod=indent shiftwidth=2 tabstop=2
+
 
 " Javascript folding
 function! JavaScriptFold()
@@ -102,7 +123,7 @@ au FileType javascript setl fen
 
 try
     "let g:solarized_termcolors=256
-    "set t_Co=16
+    set t_Co=16
     set background=dark
     colorscheme solarized
 catch

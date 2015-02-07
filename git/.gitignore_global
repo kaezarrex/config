@@ -15,7 +15,11 @@
 # databases
 *.sql
 
+# python
+*.pyc
+
 # other
 *.kml
 *.pyc
 *.egg-info
+*.swp
