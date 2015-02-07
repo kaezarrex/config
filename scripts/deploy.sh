@@ -14,6 +14,12 @@ git --version &> /dev/null || {
      exit 1
 }
 
+# Check whether stow exists.
+stow --version &> /dev/null || {
+     echo 'Stow is not installed on this system.'
+     exit 1
+}
+
 echo "Cloning dotfiles to $TARGET_PATH"
 git clone https://github.com/kaezarrex/config $TARGET_PATH
 
