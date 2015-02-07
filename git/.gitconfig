@@ -36,5 +36,3 @@
     last = log -1 HEAD
     visual = !gitg
     up = "!git remote update -p; git merge --ff-only @{u}"
-[push]
-    default = simple

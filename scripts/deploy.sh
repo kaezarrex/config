@@ -1,6 +1,7 @@
 #!/bin/sh
 
 TARGET_PATH=~/.dotfiles
+VUNDLE_PATH=$TARGET_PATH/vim/.vim/bundle/Vundle.vim
 
 # Check whether TARGET_PATH exists.
 if [ -d $TARGET_PATH ]; then
@@ -21,7 +22,10 @@ stow --version &> /dev/null || {
 }
 
 echo "Cloning dotfiles to $TARGET_PATH"
-git clone https://github.com/kaezarrex/config $TARGET_PATH
+git clone https://github.com/kaezarrex/config.git $TARGET_PATH
+
+echo "Cloning vundle to $VUNDLE_PATH"
+git clone https://github.com/gmarik/Vundle.vim.git $VUNDLE_PATH
 
 echo 'Installing dotfiles.'
 $TARGET_PATH/scripts/install.sh
