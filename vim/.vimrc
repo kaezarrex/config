@@ -1,16 +1,14 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible               " be iMproved
+filetype off                   " required!
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" My Bundles here:
+" My Plugins here:
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'davidhalter/jedi-vim'
@@ -20,7 +18,6 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'kevinw/pyflakes-vim'
 Plugin 'mikewest/vimroom'
 Plugin 'mileszs/ack.vim'
-Plugin 'rjohnsondev/vim-compiler-go'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 
@@ -79,33 +76,27 @@ noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
-" go-compile
-let g:golang_cwindow = 0
-
 " shortcuts
 map <Tab> <C-W><C-W>
 
 if has("autocmd")
     " Restore cursor position
     au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+    autocmd BufNewFile,BufReadPost *.css setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
+    autocmd BufNewFile,BufReadPost *.scss setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
+    autocmd BufNewFile,BufReadPost *.scss setl foldmethod=indent nofoldenable
+    autocmd BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
+    autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
+    autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+    autocmd BufNewFile,BufReadPost *.md setl tw=79 wrap
 endi
 
 hi Folded ctermbg=0
-
-"folding settings
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
 
 " Folding - use f to fold/unfold blocks
 map f za
 let g:python_fold_comments = 0
 let g:python_fold_docstrings = 0
-
-autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
-autocmd BufRead,BufNewFile *.html setlocal foldmethod=indent shiftwidth=2 tabstop=2
-
 
 " Javascript folding
 function! JavaScriptFold()
@@ -121,14 +112,13 @@ endfunction
 au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 
-try
-    "let g:solarized_termcolors=256
-    set t_Co=16
-    set background=dark
-    colorscheme solarized
-catch
-    colorscheme desert
-endtry
+" Go stuff
+let g:go_fmt_command = "goimports"
+
+"let g:solarized_termcolors=256
+"set t_Co=16
+set background=dark
+colorscheme solarized
 
 let g:airline_powerline_fonts = 1
 
