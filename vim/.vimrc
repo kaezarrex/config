@@ -21,8 +21,10 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'kevinw/pyflakes-vim'
 Plugin 'mikewest/vimroom'
 Plugin 'mileszs/ack.vim'
+Plugin 'rstacruz/sparkup'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
+Plugin 'wakatime/vim-wakatime'
 " }}}
 
 " Vundle End {{{
@@ -34,8 +36,12 @@ filetype plugin indent on    " required
 " }}}
 
 " Plugin Settings {{{
-let g:airline_powerline_fonts = 1
 let g:jedi#popup_on_dot = 0
+let g:sparkupExecuteMapping = '<c-r>'
+let g:airline_powerline_fonts = 1
+" Don't show seperators
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 " }}}
 
 " Tabs {{{
@@ -136,10 +142,12 @@ au FileType javascript setl fen
 " AutoGroups {{{
 augroup configgroup
     autocmd!
-    autocmd BufNewFile,BufReadPost *.css *.scss *.less setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
+    autocmd BufNewFile,BufReadPost *.css,*.scss,*.less setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
     autocmd BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
-    autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
+    autocmd BufNewFile,BufReadPost *.coffee,*.js,*.json setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
     autocmd BufNewFile,BufReadPost *.md setl tw=79 wrap
+    autocmd BufWritePre *.py,*.js,*.coffee,*.css,*.sass,*.less,*.md :call <SID>StripTrailingWhitespaces()
+    autocmd BufNewFile,BufReadPost *.hs setl nospell
 augroup END
 " }}}
 
@@ -154,6 +162,20 @@ let g:go_fmt_fail_silently = 1
 "set t_Co=16
 set background=dark
 colorscheme solarized
+" }}}
+
+" Custom Functions {{{
+" strips trailing whitespace at the end of files. this
+" is called on buffer write in the autogroup above.
+function! <SID>StripTrailingWhitespaces()
+    " save last search & cursor position
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    let @/=_s
+    call cursor(l, c)
+endfunction
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
