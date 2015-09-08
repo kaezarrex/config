@@ -118,7 +118,7 @@ set foldmethod=indent   " fold based on indent level
 set foldnestmax=10      " max 10 depth
 set foldenable          " don't fold files by default on open
 nnoremap f za
-set foldlevelstart=10    " start with fold level of 1
+set foldlevelstart=5    " start with fold level of 5
 
 " Folding - use f to fold/unfold blocks
 let g:python_fold_comments = 0
@@ -144,9 +144,9 @@ augroup configgroup
     autocmd!
     autocmd BufNewFile,BufReadPost *.css,*.scss,*.less setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
     autocmd BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
-    autocmd BufNewFile,BufReadPost *.coffee,*.js,*.json setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
+    autocmd BufNewFile,BufReadPost *.coffee,*.js,*.json,*.jsx setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
     autocmd BufNewFile,BufReadPost *.md setl tw=79 wrap
-    autocmd BufWritePre *.py,*.js,*.coffee,*.css,*.sass,*.less,*.md :call <SID>StripTrailingWhitespaces()
+    autocmd BufWritePre *.py,*.js,*.jsx,*.coffee,*.css,*.sass,*.less,*.md :call <SID>StripTrailingWhitespaces()
     autocmd BufNewFile,BufReadPost *.hs setl nospell
 augroup END
 " }}}
