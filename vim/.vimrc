@@ -12,18 +12,22 @@ Plugin 'gmarik/Vundle.vim'
 
 " Plugins {{{
 " My Plugins here:
+Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'fatih/vim-go'
 Plugin 'groenewege/vim-less'
+Plugin 'junegunn/goyo.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kevinw/pyflakes-vim'
 Plugin 'mikewest/vimroom'
 Plugin 'mileszs/ack.vim'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'rstacruz/sparkup'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'wakatime/vim-wakatime'
 " }}}
 
