@@ -7,4 +7,4 @@ INSTALL_PATH=~
 BASE_PATH=$(readlink -f $SCRIPTS_PATH/..)
 
 # List of stow packages to install, seperate by space.
-PACKAGES='bash git tmux vim'
+PACKAGES='bash git i3 tmux vim'
