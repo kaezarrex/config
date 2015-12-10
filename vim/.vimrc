@@ -91,9 +91,9 @@ set backspace=start,indent,eol
 " }}}
 
 " Color Column {{{
-" show colored 80th column
+" show colored 100th column
 if exists('+colorcolumn')
-    set colorcolumn=80
+    set colorcolumn=100
 endif
 " }}}
 
@@ -150,6 +150,7 @@ augroup configgroup
     autocmd BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
     autocmd BufNewFile,BufReadPost *.coffee,*.js,*.json,*.jsx setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
     autocmd BufNewFile,BufReadPost *.md setl tw=79 wrap
+    autocmd BufNewFile,BufReadPost *.py setl tw=100 wrap
     autocmd BufWritePre *.py,*.js,*.jsx,*.coffee,*.css,*.sass,*.less,*.md :call <SID>StripTrailingWhitespaces()
     autocmd BufNewFile,BufReadPost *.hs setl nospell
 augroup END
