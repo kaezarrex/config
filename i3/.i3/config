@@ -24,9 +24,10 @@ set $mod Mod4
 floating_modifier $mod
 
 ############################# My changes
-font pango:Inconsolata, FontAwesome 10
+font pango:Inconsolata, FontAwesome 11
 
-bindsym $mod+backslash exec i3lock -c 002b36
+bindsym $mod+backslash exec blur-lock
+exec xautolock -time 3 -locker 'blur-lock' &
 
 hide_edge_borders both
 # new_window none
@@ -52,6 +53,23 @@ bindsym Control+Shift+space exec amixer -D pulse set Master toggle
 # screen brightness
 bindsym Control+Shift+period exec xbacklight -inc 11
 bindsym Control+Shift+comma exec xbacklight -dec 10
+
+# Window defaults
+assign [class="^Google-chrome$" instance="^www.flowdock.com__app_transloc$"] 2
+assign [class="^Google-chrome$" instance="^hazmatron.slack.com__messages_general$"] 3
+for_window [class="Steam"] floating enable, border pixel 0
+for_window [class="Spotify"] floating enable, border pixel 0
+for_window [class="crx_nckgahadagoaajjgafhacjanaoiihapd"] floating enable # hangouts
+for_window [class="qemu-pebble"] floating enable
+
+# start dunst notifier
+# exec killall -q notify-osd
+# exec --no-startup-id dunst
+
+# start other processes
+exec --no-startup-id dropbox start
+exec --no-startup-id gnome-terminal
+exec --no-startup-id google-chrome
 
 #############################
 
@@ -175,19 +193,26 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Window border colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #458588 #076678 #fbf1c7 #ffffff   #ffffff
+client.focused_inactive #3c3836 #3c3836 #fbf1c7 #ffffff   #ffffff
+client.unfocused        #3c3836 #282828 #fbf1c7 #ffffff   #ffffff
+
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
     status_command i3status
     position top
-    font pango: Inconsolata, FontAwesome 10
+    font pango: Inconsolata, FontAwesome 11
 
     colors {
-        background #232020
+        background #282828
         statusline #bbbbbb
 
-        focused_workspace  #ffffff #285577
-        active_workspace   #ffffff #333333
+        focused_workspace  #ffffff #458588
+        active_workspace   #ffffff #82a598
         inactive_workspace #888888 #222222
         urgent_workspace   #ffffff #900000
     }

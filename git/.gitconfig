@@ -1,6 +1,6 @@
 [user]
-    name = David Hazinski
-    email = dhazinski@gmail.com
+	name = David Hazinski\n
+	email = dhazinski@gmail.com
 [color]
     ui = auto
 [color "branch"]

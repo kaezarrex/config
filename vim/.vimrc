@@ -14,8 +14,8 @@ Plugin 'gmarik/Vundle.vim'
 " My Plugins here:
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'fatih/vim-go'
 Plugin 'groenewege/vim-less'
 Plugin 'junegunn/goyo.vim'
@@ -23,11 +23,15 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'kevinw/pyflakes-vim'
 Plugin 'mikewest/vimroom'
 Plugin 'mileszs/ack.vim'
+Plugin 'morhetz/gruvbox'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rstacruz/sparkup'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'wakatime/vim-wakatime'
 " }}}
 
@@ -44,8 +48,12 @@ let g:jedi#popup_on_dot = 0
 let g:sparkupExecuteMapping = '<c-r>'
 let g:airline_powerline_fonts = 1
 " Don't show seperators
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+"let g:airline_left_sep=''
+"let g:airline_right_sep=''
+
+"let g:gruvbox_termcolors = 16
+
+let g:syntastic_javascript_checkers = ['eslint']
 " }}}
 
 " Tabs {{{
@@ -88,6 +96,9 @@ set showmode
 set showcmd
 
 set backspace=start,indent,eol
+
+set swapfile
+set dir=~/tmp
 " }}}
 
 " Color Column {{{
@@ -150,8 +161,10 @@ augroup configgroup
     autocmd BufNewFile,BufReadPost *.html setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
     autocmd BufNewFile,BufReadPost *.coffee,*.js,*.json,*.jsx setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
     autocmd BufNewFile,BufReadPost *.md setl tw=79 wrap
+    autocmd BufNewFile,BufReadPost *.rst setl shiftwidth=3 expandtab tabstop=3 softtabstop=3 tw=79
     autocmd BufNewFile,BufReadPost *.py setl tw=100 wrap
     autocmd BufWritePre *.py,*.js,*.jsx,*.coffee,*.css,*.sass,*.less,*.md :call <SID>StripTrailingWhitespaces()
+    autocmd BufNewFile,BufReadPost *.c,*.h setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
     autocmd BufNewFile,BufReadPost *.hs setl nospell
 augroup END
 " }}}
@@ -166,7 +179,7 @@ let g:go_fmt_fail_silently = 1
 "let g:solarized_termcolors=256
 "set t_Co=16
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 " }}}
 
 " Custom Functions {{{
