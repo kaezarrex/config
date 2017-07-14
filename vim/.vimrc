@@ -53,7 +53,17 @@ let g:airline_powerline_fonts = 1
 
 "let g:gruvbox_termcolors = 16
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_eslint_exec = system('npm-which eslint')
+
 " }}}
 
 " Tabs {{{
@@ -166,6 +176,7 @@ augroup configgroup
     autocmd BufWritePre *.py,*.js,*.jsx,*.coffee,*.css,*.sass,*.less,*.md :call <SID>StripTrailingWhitespaces()
     autocmd BufNewFile,BufReadPost *.c,*.h setl shiftwidth=2 expandtab tabstop=2 softtabstop=2
     autocmd BufNewFile,BufReadPost *.hs setl nospell
+    autocmd FileType javascript set formatprg=prettier\ --stdin\ --print-width=100\ --single-quote\ --trailing-comma=es5\ --bracket-spacing=false
 augroup END
 " }}}
 
